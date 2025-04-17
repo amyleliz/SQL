@@ -64,8 +64,7 @@ VALUES
 SELECT company_name, revenue, healthcare_benefits
 FROM fortune_companies
 WHERE revenue > 350
-GROUP BY revenue
-HAVING healthcare_benefits = 1
+AND healthcare_benefits = 1
 ORDER BY revenue DESC;
 
 
@@ -84,7 +83,8 @@ AND avg_employee_tenure >= 6.5
 ORDER BY maternity_leave_weeks DESC;
 
 
---Create a query to find all companies with 20 or more PTO days, 12 or more weeks maternity leave, and 5 or more years of average employee tenure
+--Create a query to find all companies with 20 or more PTO days, 12 or more weeks maternity leave, and 5 or more 
+years of average employee tenure
 SELECT company_name, avg_employee_tenure, paid_time_off_days, maternity_leave_weeks
 FROM fortune_companies
 WHERE paid_time_off_days >= 20
@@ -93,7 +93,8 @@ AND avg_employee_tenure >= 5
 ORDER BY avg_employee_tenure DESC;
 
 
---Create a query to assign the PTO days of each company as "PTO friendly", "PTO modest", or "PTO minimum" based on the amount of PTO offered
+--Create a query to assign the PTO days of each company as "PTO friendly", "PTO modest", or "PTO minimum" based on 
+the amount of PTO offered
 SELECT company_name, paid_time_off_days,
 CASE WHEN paid_time_off_days >= 20 THEN "PTO friendly"
 WHEN paid_time_off_days BETWEEN 15 and 19 THEN "PTO modest"
